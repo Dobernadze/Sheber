@@ -3,26 +3,26 @@ const path = require('path')
 const app = express()
 const PORT = 3000
 
-const createPath = (page) =>path.resolve(__dirname, 'views', `${page}.html`)
+const createPath = (page) =>path.resolve(__dirname, 'ejs-views', `${page}.ejs`)
 
 app.listen(PORT, (error) => {
     error ? console.log(error) : console.log(`listening on port ${PORT}`);
 })
 
 app.get('/', (req, res) => {
-    res.sendFile(createPath('index'))
+    res.render(createPath('index'))
 })
 
 app.get('/contacts', (req, res) => {
-    res.sendFile(createPath('contacts'))
+    res.render(createPath('contacts'))
 })
 
 app.get('/about-us', (req, res) => {
-    res.redirect('/contacts')
+    res.render('/contacts')
 })
 
 app.use( (req, res) => {
     res
     .status(404)
-    .sendFile(createPath('error'))
+    .render(createPath('error'))
 })

@@ -2,6 +2,7 @@ const http = require('http');
 const PORT = 3000;
 const fs = require('fs');
 const path = require('path');
+app.set('view engine', 'ejs');
 
 const server = http.createServer((req, res) => {
     console.log('server request');
@@ -9,7 +10,7 @@ const server = http.createServer((req, res) => {
    
     res.setHeader('Content-Type', 'text/html');
 
-const createPath = (page) =>path.resolve(__dirname, 'views', `${page}.html`)
+const createPath = (page) =>path.resolve(__dirname, 'ejs-views', `${page}.ejs`)
 
    let basePath = '';
    switch(req.url){
