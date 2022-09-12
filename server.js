@@ -18,15 +18,18 @@ app.get('/contacts', (req, res) => {
 })
 
 app.get('/about-us', (req, res) => {
-    res.render('/contacts')
+    res.render(createPath('about'))
 })
 
-app.get('/authorization',(req, res) => {
+app.get('/registration', (req, res) => {
     res.render(createPath('form'))
-})
+ })
+
+
 
 app.use( (req, res) => {
     res
     .status(404)
     .render(createPath('error'))
 })
+
