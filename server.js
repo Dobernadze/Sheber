@@ -21,6 +21,10 @@ app.get('/about-us', (req, res) => {
     res.render('/contacts')
 })
 
+app.get('/authorization',(req, res) => {
+    res.render(createPath('form'))
+})
+
 app.use( (req, res) => {
     res
     .status(404)
