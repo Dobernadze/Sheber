@@ -21,6 +21,10 @@ app.get('/about-us', (req, res) => {
     res.render(createPath('about'))
 })
 
+app.get('/id', (req, res) => {
+    res.render(createPath('personal_account'))
+})
+
 app.get('/registration', (req, res) => {
     res.render(createPath('form'))
  })
