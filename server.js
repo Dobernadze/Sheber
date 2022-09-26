@@ -2,6 +2,14 @@ const express = require('express')
 const path = require('path')
 const app = express()
 const PORT = 3000
+const mongoose = require('mongoose')
+
+const db = 'mongodb+srv://qwerty:Frunze127@cluster0.v5n9urc.mongodb.net/?retryWrites=true&w=majority'
+
+mongoose
+    .connect(db)
+    .then((res)=> console.log('Connected to DB'))
+    .catch((err)=> console.log(error))
 
 const createPath = (page) =>path.resolve(__dirname, 'ejs-views', `${page}.ejs`)
 
